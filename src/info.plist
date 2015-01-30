@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>me.justwe.duokan</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>5DD332BA-5F1D-4990-93F2-5E4A8A61AC90</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AC3D6F76-1BCA-48AA-8C36-9AE404198AF4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>justwe</string>
+	<key>description</key>
+	<string>查看多看阅读（www.duokan.com）上的新书</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>duokan</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>AC3D6F76-1BCA-48AA-8C36-9AE404198AF4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>duokan</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>数据获取中……</string>
+				<key>script</key>
+				<string>#!/usr/bin/env python
+# encoding=utf-8
+import sys
+
+from workflow import Workflow
+from duokan import book_items
+
+
+def main(wf):
+
+    args = wf.args
+
+    for item in book_items():
+        wf.add_item(**item)
+
+    wf.send_feedback()
+
+
+if __name__ == '__main__':
+
+    wf = Workflow()
+    sys.exit(wf.run(main))</string>
+				<key>title</key>
+				<string>多看阅读新书</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5DD332BA-5F1D-4990-93F2-5E4A8A61AC90</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>5DD332BA-5F1D-4990-93F2-5E4A8A61AC90</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>AC3D6F76-1BCA-48AA-8C36-9AE404198AF4</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://justwe.me</string>
+</dict>
+</plist>
